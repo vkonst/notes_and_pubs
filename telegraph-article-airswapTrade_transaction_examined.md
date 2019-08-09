@@ -1,6 +1,6 @@
-# AirSwap Trade transaction examined
+# AirSwap Trader transaction examined
 
-__AirSwap__ [launched the "__Airswap Trader__"](https://medium.com/fluidity/introducing-airswap-trader-63a0ef9e67c0) service recently.
+__AirSwap__ [launched the "__Airswap Trader__"](https://medium.com/fluidity/introducing-airswap-trader-63a0ef9e67c0) service recently.\
 Public beta: https://trader.airswap.io/
 
 The service allows sharing and settling over-the-counter (OTC) decentralized pair-to-pair trades in ERC20 tokens.
@@ -13,11 +13,11 @@ This article provides __technical info__ for one of the first trades:
 The info provided for __educational purposes__.
 
 ### The Order
-AirSwap Trader Web-inteface:
+AirSwap Trader Web-inteface:\
 https://trader.airswap.io/QmbZ92uP4SZEyEfQkqphiev6PGyuMFHynG1BSnoofhAhgM
 ![alt text](resources/trader-airswap-io-slash-QmbZ92uP4SZEyEfQkqphiev6PGyuMFHynG1BSnoofhAhgM.png "AirSwap Trader Web-interfqace")
 
-The Oder data is published on the IPFS:
+The Oder data is published on the IPFS:\
 https://ipfs.infura.io/ipfs/QmbZ92uP4SZEyEfQkqphiev6PGyuMFHynG1BSnoofhAhgM
 ```
 {
@@ -37,7 +37,7 @@ https://ipfs.infura.io/ipfs/QmbZ92uP4SZEyEfQkqphiev6PGyuMFHynG1BSnoofhAhgM
   "v":27
 }
 ```
-Maker sent: 10 DAI
+Maker sent: 10 DAI\
 Maker received: 0.001 WETH
 
 ### Addresses involved
@@ -57,15 +57,16 @@ Address                                   | Nickname in logs
 0x2157a7894439191e520825fe9399ab8655e0f708| Uniswap_Vyper_contract
 
 ### Order_taking_transaction
-> Transaction Hash: 0x2313a07a525de5667f35a5ebfe07bff68831dc35b5aa0f45fd7908edb2dc0f82
-  Block: 8303888
-  Timestamp: Aug-07-2019 01:47:30 PM +UTC
-  From: Taker_wallet
-  Value: 0.001003244508086902 Ether ($0.23)
-  Transaction Fee: 0.00153071400025 ETH ($0.34)
+[1]:https://etherscan.io/tx/0x2313a07a525de5667f35a5ebfe07bff68831dc35b5aa0f45fd7908edb2dc0f82
+> Transaction Hash: 0x2313a07a525de5667f35a5ebfe07bff68831dc35b5aa0f45fd7908edb2dc0f82\
+  Block: 8303888\
+  Timestamp: Aug-07-2019 01:47:30 PM +UTC\
+  From: Taker_wallet\
+  Value: 0.001003244508086902 Ether ($0.23)\
+  Transaction Fee: 0.00153071400025 ETH ($0.34)\
   Gas Used: 255,119
 
-__Transfers and calls triggered by the Order_taking_transaction__\
+__Transfers and calls triggered by the [Order_taking_transaction](1)__\
 ![alt text](resources/airswap_trade_transaction.jpg "Transfers and calls")\
 _image source: [bloxy.info](https://bloxy.info/tx/0x2313a07a525de5667f35a5ebfe07bff68831dc35b5aa0f45fd7908edb2dc0f82#)_
 
@@ -127,26 +128,26 @@ The_trade_contract   |Uniswap_DAI_contract | 10.0                 DAI
 ### Related transactions
 
 #### Maker_approval_transaction
-> Transaction Hash: 0x69558242be38e4dbfb4204528d3be732bb48e1f02654cec5c3210d29b399a2ed
-  Block: 8298865
-  Timestamp: Aug-06-2019 07:09:39 PM +UTC
-  From: Maker_wallet
-  To: DAI_token_contract
-  Value: 0 ETH
-  Transaction Fee: 0.000277062 ETH
+> Transaction Hash: 0x69558242be38e4dbfb4204528d3be732bb48e1f02654cec5c3210d29b399a2ed\
+  Block: 8298865\
+  Timestamp: Aug-06-2019 07:09:39 PM +UTC\
+  From: Maker_wallet\
+  To: DAI_token_contract\
+  Value: 0 ETH\
+  Transaction Fee: 0.000277062 ETH\
   Gas Used: 46,177
 ```
 Maker_wallet calls DAI_token_contract.approve ( spender: Swap_trader_contract, value: 90071992547409910000000000 )
 ```
 
 #### Maker_funding_transaction
-> Transaction Hash: 0x013a517fd7d5b88645f7de2a83112d69d05ce7cf74be8f934545f465c6463fb1
-  Block: 8303883
-  Timestamp: Aug-07-2019 01:44:56 PM +UTC
-  From: Maker_wallet
-  To: AirSwap_exch_contract
-  Value: 0.043548430164464009 ETH
-  Transaction Fee: 0.000529265 ETH ($0.12)
+> Transaction Hash: 0x013a517fd7d5b88645f7de2a83112d69d05ce7cf74be8f934545f465c6463fb1\
+  Block: 8303883\
+  Timestamp: Aug-07-2019 01:44:56 PM +UTC\
+  From: Maker_wallet\
+  To: AirSwap_exch_contract\
+  Value: 0.043548430164464009 ETH\
+  Transaction Fee: 0.000529265 ETH ($0.12)\
   Gas Used: 105,853
 
 ```
@@ -175,27 +176,30 @@ Some_wallet          |Maker_wallet         |10.0                 DAI
 ### Notes on contracts
 
 #### Contract "The_trade_contract"
-```
-Address: 0x111a6e55d1be9e57dd75c113dc00f3527b238724
-Created by:
-  Address: Taker_wallet
-  Transaction: Order_order_taking_transaction
-Self Destruct called at:
-  Transaction: Order_order_taking_transaction
-```
+
+> Address: 0x111a6e55d1be9e57dd75c113dc00f3527b238724\
+  Created by:\
+  Address: Taker_wallet\
+  Transaction: [Order_taking_transaction](1)\
+  Self Destruct called at:\
+  Transaction: [Order_taking_transaction](1)
+
 #### Contract Uniswap_DAI_contract
-```
-Address: 0x09cabEC1eAd1c0Ba254B09efb3EE13841712bE14
-TokenTracker: Uniswap V1 (UNI-V1)
-```
+
+> Address: 0x09cabEC1eAd1c0Ba254B09efb3EE13841712bE14\
+  TokenTracker: Uniswap V1 (UNI-V1)
+
 #### Contract Uniswap_WETH_contract
-```
-Address: 0xA2881A90Bf33F03E7a3f803765Cd2ED5c8928dFb
-TokenTracker: Uniswap V1 (UNI-V1)
-```
+
+> Address: 0xA2881A90Bf33F03E7a3f803765Cd2ED5c8928dFb\
+  TokenTracker: Uniswap V1 (UNI-V1)
+
 #### Contract "Swap_trader_contract"
+
+> Address: 0x9af9c0cf3cd15e0afe63930fbf20941c89f3ff98\
+  [Source code](resources/airswap_tradeer_swap_contract.sol)
+
 ```
-Address: 0x9af9c0cf3cd15e0afe63930fbf20941c89f3ff98
 // Swap (Trader) by Swap Holdings Ltd.
 // File: contracts/Swap.sol
 // @title Swap: The Atomic Swap used by the Swap Protocol
@@ -250,9 +254,11 @@ Address: 0x9af9c0cf3cd15e0afe63930fbf20941c89f3ff98
         if (_approver == _delegate) return true;
         return (delegateApprovals[_approver][_delegate] > block.timestamp);
     }
-
---- Contract AirSwap_exch_contract
-Address: 0x8fd3121013a07c57f0d69646e86e7a4880b467b7
+```
+#### Contract AirSwap_exch_contract
+Address: 0x8fd3121013a07c57f0d69646e86e7a4880b467b7\
+[Source code](resources/airswap_exhange_contract.sol)
+```
 // See the Github at https://github.com/airswap/contracts
 //   @title: AirSwap exchange contract.
 //   Assumes makers and takers have approved this contract to access their balances.
