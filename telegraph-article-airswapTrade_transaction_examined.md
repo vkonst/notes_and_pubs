@@ -151,7 +151,6 @@ Maker_wallet calls DAI_token_contract.approve ( spender: Swap_trader_contract, v
 
 ```
 // Note: the "maker" under this order is "Some_wallet" while the "taker" is Maker_wallet
-
 Maker_wallet calls AirSwap_exch_contract.fill (
     makerAddress: Some_wallet , makerAmount: 10000000000000000000 , makerToken: DAI_token_contract ,
     takerAddress: Maker_wallet , takerAmount: 43548430164464009 , takerToken: 00000000000000000... ,
